@@ -150,30 +150,26 @@ const showDetailsModal = (ai_hub) =>
                          
                         <div class="w-[132px] h-[100px] mt-5 bg-white shadow-sm text-center rounded-md">
                            
-                            <div class="my-8 font-inter font-semibold text-[#03A30A]">
-                              <p>${ai_hub?.pricing[0]?.price || "No data found"}</p>
-                               
-                              <p>${ai_hub?.pricing[0]?.plan || "No data found"}</p>
-
-                            </div>
+<div class="my-8 font-inter font-semibold text-[#03A30A]">
+        <p >${ai_hub?.pricing?.[0]?.price && ai_hub.pricing[0].price !== "null" ? ai_hub.pricing[0].price : "Free"}</p>
+        <p>${ai_hub?.pricing?.[0]?.plan && ai_hub.pricing[0].plan !== "null" ? ai_hub.pricing[0].plan : "Basic Plan"}</p>
+    </div>
                         </div>
 
                         <div class="mt-5 w-[132px] h-[100px] bg-white shadow-sm text-center rounded-md">
                             
                            <div class="my-8 font-inter font-semibold text-[#F28927]">
-                              <p>${ai_hub?.pricing[1]?.price || "No data found"}</p>
-                             
-                              <p>${ai_hub?.pricing[1]?.plan || "No data found"}</p>
-                           </div>
+        <p>${ai_hub?.pricing?.[1]?.price && ai_hub.pricing[1].price !== "null" ? ai_hub.pricing[0].price : "Free"}</p>
+        <p>${ai_hub?.pricing?.[1]?.plan && ai_hub.pricing[0].plan !== "null" ? ai_hub.pricing[0].plan : "Basic Plan"}</p>
+    </div>
 
                         </div>
 
                         <div class="mt-5 w-[132px] h-[100px] bg-white shadow-sm text-center rounded-md">
                                 
                             <div class="my-5 font-inter text-[14px] text-[#EB5757] font-semibold ">
-                              <p class = "mx-2">${ai_hub?.pricing[2]?.price || "No data found"}</p>
-                              
-                              <p>${ai_hub?.pricing[2]?.plan || "No data found"}</p>
+        <p>${ai_hub?.pricing?.[2]?.price && ai_hub.pricing[2].price !== "null" ? ai_hub.pricing[2].price : "Free"}</p>
+        <p>${ai_hub?.pricing?.[2]?.plan && ai_hub.pricing[2].plan !== "null" ? ai_hub.pricing[2].plan : "Basic Plan"}</p>
                             </div>
                         </div>
 
@@ -191,9 +187,9 @@ const showDetailsModal = (ai_hub) =>
                            <h3 class="text-xl font-semibold">Features</h3>
                             
                             <ul class="text-[14px] list-inside list-disc">
-                              <li>${ai_hub?.features?.["1"]?.feature_name || "No data found"}</li>
-                              <li>${ai_hub?.features?.["2"]?.feature_name || "No data found"}</li>
-                              <li>${ai_hub?.features?.["3"]?.feature_name || "No data found"}</li>
+                              <li>${ai_hub?.features?.["1"]?.feature_name && ai_hub?.features?.["1"]?.feature_name !=="null" ? ai_hub?.features?.["1"]?.feature_name:"No data found"}</li>
+                              <li>${ai_hub?.features?.["2"]?.feature_name && ai_hub?.features?.["2"]?.feature_name !=="null" ? ai_hub?.features?.["2"]?.feature_name:"No data found"}</li>
+                              <li>${ai_hub?.features?.["3"]?.feature_name && ai_hub?.features?.["3"]?.feature_name !=="null" ? ai_hub?.features?.["3"]?.feature_name:"No data found"}</li>
                             </ul>
                           
                            </div>
@@ -202,9 +198,9 @@ const showDetailsModal = (ai_hub) =>
                             <h3 class="text-xl font-semibold">Integrations</h3>  
                            
                             <ul class="text-[14px] list-inside list-disc">
-                              <li>${ai_hub?.integrations[0] || "No data found"}</li>
-                              <li>${ai_hub?.integrations[1] || "No data found"}</li>
-                              <li>${ai_hub?.integrations[2] || "No data found"}</li>
+                              <li>${ai_hub?.integrations[0] && ai_hub?.integrations[0]!== "null" ? ai_hub?.integrations[0]: "No data found"}</li>
+                              <li>${ai_hub?.integrations[1] && ai_hub?.integrations[1]!== "null" ? ai_hub?.integrations[1]: "No data found"}</li>
+                              <li>${ai_hub?.integrations[2] && ai_hub?.integrations[2]!== "null" ? ai_hub?.integrations[2]: "No data found"}</li>
                            </ul> 
 
                           </div>
