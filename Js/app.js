@@ -19,15 +19,15 @@ const loadData = async() =>
 
             const div = document.createElement('div');
             
-            div.classList.add("grid","grid-cols-1","lg:grid-cols-3","gap-2","mt-10");
+            
 
             div.innerHTML =
             `
             <div class="card bg-base-100 w-[487px] shadow-xl">
           
                     <img
-                    src="images/Rectangle 23.png"
-                    alt="Shoes"
+                    src="${item?.image}"
+                    alt="loading"
                     class="rounded-xl mx-5" />
           
                     <div class="card-body h-auto">
@@ -36,9 +36,9 @@ const loadData = async() =>
              
                     <div class="mt-4 font-sans font-normal text-[14px] text-[#585858]">
                         <ol class="list-decimal list-inside">
-                            <li>Natural language processing</li>
-                            <li>Contextual understanding</li>
-                            <li>Text generation</li>
+                            <li>${item?.features[0]}</li>
+                            <li>${item?.features[1]}</li>
+                            <li>${item?.features[2]}</li>
                         </ol>
                     </div>
 
@@ -49,11 +49,11 @@ const loadData = async() =>
                 
                <div class="">
 
-                  <h3 class="font-sans font-semibold text-xl">ChatGPT</h3>
+                  <h3 class="font-sans font-semibold text-xl">${item?.name}</h3>
                          
                    <div class="flex justify-around mt-5 gap-2">
                      <img src="images/Calendar.png" alt="">
-                     <p>11/01/2022</p>
+                     <p>${item?.published_in}</p>
         
                    </div>
 
