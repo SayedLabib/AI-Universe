@@ -1,6 +1,20 @@
 
 
 
+const sortByDate = document.getElementById('sort-date').addEventListener('click',function(e) {
+
+   const container  = document.getElementById('tools-container');
+
+   container.scrollIntoView({
+       
+       behavior: 'smooth',
+       block: 'center',
+
+   });
+
+});
+
+
 const loadData = async(isShowAll =  false) =>
     {
         const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
