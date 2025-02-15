@@ -1,18 +1,23 @@
 
-console.log('Connected');
+
 
 
 const loadData = async() =>
     {
-        const res = await fetch('https://openapi.programming-hero.com/api/ai/tools');
+        const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
         const data = await res.json();
 
-        // console.log(data.data);
+        const tools = data.data?.tools;
         
           
         const toolsContainer = document.getElementById('tools-container');
-        
-        data.data.tools.forEach((item) => 
+
+        toolsContainer.innerHTML = '';
+
+
+
+
+        tools.forEach((item) => 
         {
            
              console.log(item);
@@ -80,4 +85,29 @@ const loadData = async() =>
    
     }; 
 
- loadData();   
+
+
+
+
+
+// const searchButton = () =>
+//   {
+      
+//        const searchField = document.getElementById('search-field').value;
+
+       
+
+//        if(searchField)
+//         {
+//             loadData(searchField);
+//         }
+
+//         else
+//         {
+//           alert('NO data available...Please Enter a valid name');
+//         }
+
+//   };
+
+loadData();    
+ 
