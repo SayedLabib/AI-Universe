@@ -1,32 +1,39 @@
 
 
 
-
-const loadData = async() =>
+const loadData = async(isShowAll =  false) =>
     {
         const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
         const data = await res.json();
 
         const tools = data.data?.tools;
-
-        displayTools(tools);
+          
+        displayTools(tools, isShowAll);
         
     }   
         
     
-    const displayTools = (tool)=>{
+    const displayTools = (tool, isShowAll)=>{
 
                     
       const toolsContainer = document.getElementById('tools-container');
+      const seeMore = document.getElementById('see-more'); 
+
 
       toolsContainer.innerHTML = '';
 
-
-    
-      tool.forEach((item) => 
+      
+      
+    if(!isShowAll)
       {
-         
-           console.log(item);
+          tool = tool.slice(0,6);
+      }
+
+
+    tool.forEach((item) => 
+      {
+        
+          //  console.log(item);
 
           const div = document.createElement('div');
           
@@ -38,7 +45,7 @@ const loadData = async() =>
         
                   <img
                   src="${item?.image}"
-                  alt="loading"
+                  alt="Not loading"
                   class="rounded-xl mx-5" />
         
                   <div class="card-body h-auto">
@@ -47,9 +54,9 @@ const loadData = async() =>
            
                   <div class="mt-4 font-sans font-normal text-[14px] text-[#585858]">
                       <ol class="list-decimal list-inside">
-                          <li>${item?.features[0]}</li>
-                          <li>${item?.features[1]}</li>
-                          <li>${item?.features[2]}</li>
+                          <li>${item?.features[0] || "N/A"}</li>
+                          <li>${item?.features[1] || "N/A"}</li>
+                          <li>${item?.features[2] || "N/A"}</li>
                       </ol>
                   </div>
 
@@ -87,41 +94,24 @@ const loadData = async() =>
       
           toolsContainer.appendChild(div); 
       });
- 
 
 
-
-
-
-
+      if (tool.length >= 6 && !isShowAll) {
+        seeMore.classList.remove('hidden');
+      } 
+    
+      else {
+        seeMore.classList.add('hidden');
+      }
+   
     };
 
         
-   
+const seeMoreButton = () =>
+  {
+     loadData(true);
+  }
 
-
-
-
-
-
-// const searchButton = () =>
-//   {
-      
-//        const searchField = document.getElementById('search-field').value;
-
-       
-
-//        if(searchField)
-//         {
-//             loadData(searchField);
-//         }
-
-//         else
-//         {
-//           alert('NO data available...Please Enter a valid name');
-//         }
-
-//   };
 
 loadData();    
  
